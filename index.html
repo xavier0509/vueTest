@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+	<head>
+		<meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<meta charset="UTF-8">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/adjust.js"></script>
+		<script type="text/javascript" src="js/coocaamap-1.1.js"></script>
+		<title>帮助与反馈</title>
+		
+	</head>
+
+	<body style="background: skyblue">
+		<div id="deviceready">
+			<!--描述：首页-->
+			<div id="firstpage" v-show="firstpageshow">
+				<img id="bgimg" src="images/bg.png" />
+				<div id="titleinfo">帮助与反馈</div>
+				<img id="icon" src="images/icon.png" />
+				<div start="1" class="appshowtitle" id="listInfo">
+					<coocaa-btn v-for="(list,index) in lists" @item-click="getAnswer(index)" @exit="exit">
+						{{index+1}}、{{list.question}}
+					</coocaa-btn>
+				</div>
+				<div id="RTKErrorInfo">该电视安卓版本较低，不支持此操作</div>
+			</div>
+			<!--描述：问题反馈页-->
+			<div id="secondpage" v-show="secondpageshow">
+				<createimg v-for="(list,index) in lists" v-bind:imgsrc="list.answerList[0]" v-bind:showimgself='index' v-bind:showimg='showImg123'></createimg>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		
+		<script type="text/javascript" src="js/vue-mission.js"></script>
+		<script type="text/javascript" src="js/framework.js"></script>
+	</body>
+
+</html>
